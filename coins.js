@@ -26,3 +26,38 @@ var coins = coinCounter()
 console.log();
 */
 
+function coinCounter(num2) {
+  var num = num2*100; //this eliminates the use of decimals to create whole numbers.
+  var coinPurse = {};
+  if (num >= 25) {
+    coinPurse.quarters = Math.floor(num/25);
+    num = (num - (coinPurse.quarters*25));
+  }
+
+  if (num >= 10 || num <= 24) {
+    coinPurse.dimes = Math.floor(num/10);
+    num = (num - (coinPurse.dimes*10));
+      
+  }
+
+  if (num >= 5 || num <= 9) {
+    coinPurse.nickels = Math.floor(num/5);
+    num = (num - (coinPurse.nickels*5));
+  }
+
+  if (num >= 1 || num <= 4) {
+    coinPurse.pennies = Math.floor(num/1);
+    num = (num - (coinPurse.nickels*1));
+  }
+
+  return coinPurse || (num);
+
+}
+  
+  var coins = coinCounter(1.66);
+
+
+  console.log(coins);
+
+
+  
